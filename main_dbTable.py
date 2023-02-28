@@ -7,16 +7,23 @@ def main(page:Page):
  
 	# AND CREATE FAKE DATA IN YOU TABLE
 	mydata = [
-	{"name":"boy","age":12,"address":"new york"},
-	{"name":"sam","age":12,"address":"new york"},
-	{"name":"doe","age":12,"address":"new york"},
-	{"name":"jaka","age":12,"address":"new york"},
-	{"name":"dodo","age":12,"address":"new york"},
-	{"name":"boy1","age":21,"address":"new york"},
-	{"name":"sam2","age":22,"address":"new york"},
-	{"name":"doe3","age":23,"address":"new york"},
-	{"name":"jaka4","age":42,"address":"new york"},
-	{"name":"dodo5","age":24,"address":"new york"},
+	{"name":"boy22","age":12,"address":"new york12"},
+	{"name":"samww","age":12,"address":"new yorksfd"},
+	{"name":"does","age":12,"address":"new yorks"},
+	{"name":"jakasdfs","age":12,"address":"new yorkgfdg"},
+	{"name":"dodosds","age":12,"address":"new yorkere"},
+	{"name":"boy1sd","age":21,"address":"new yorkwerew"},
+	{"name":"sam2dsd","age":22,"address":"new yorksd"},
+	{"name":"doe3sd","age":23,"address":"new york"},
+	{"name":"jaka4sdf","age":42,"address":"new yorksdf"},
+	{"name":"dodo 5ew","age":24,"address":"new yorksd"},\
+	{"name":"dodosds","age":12,"address":"new yorkere"},
+	{"name":"boy1sd","age":21,"address":"new yorkwerew"},
+	{"name":"sam2dsd","age":22,"address":"new yorksd"},
+	{"name":"doe3sd","age":23,"address":"new york"},
+	{"name":"jaka4sdf","age":42,"address":"new yorksdf"},
+	{"name":"dodo 5ew","age":24,"address":"new yorksd"},
+ 
  
 	]
  
@@ -28,10 +35,14 @@ def main(page:Page):
  
 	# CREATE DATATABLE
 	dt = DataTable(
+		data_row_color={"hovered": "0x30FF0000"},
 		columns=[
 		colName,
-		colAge,
-		colAddress
+		#colAge,
+		#colAddress,
+		#colName,
+		#colAge,
+		#colAddress,
 			],
 		rows=[]
  
@@ -42,16 +53,51 @@ def main(page:Page):
 		dt.rows.append(
 			DataRow(
 				cells=[
-					DataCell(Text(x['name'])),
-					DataCell(Text(x['age'])),
-					DataCell(Text(x['address'])),
- 
- 
-				]
- 
-				)
- 
-			)
+					#DataCell(Text(x['name'])),
+					DataCell(
+					    Container(
+					        padding=padding.symmetric(horizontal=10),
+					        margin=-8,
+					        height= 250,
+							content=Column(
+							    spacing=0,
+							    alignment=MainAxisAlignment.SPACE_BETWEEN,
+							    controls=[
+							        ListTile(
+							            #title=Text(x['name']),
+
+							            title=Row(
+									        spacing=20,             
+									        controls=[
+									            Text(
+									            	x['name'],
+									            	color=colors.BLUE,
+									            	size=14,
+									            	weight="bold"
+									            	),
+
+									            Text(x['address']),
+									        ]),
+
+
+							            subtitle=Text(x['address']),
+							            #on_click=self.OpenYOuAction
+							            trailing=Icon(icons.MORE_VERT),
+							        	dense=True,
+							        ),
+							    ]
+							),
+					    ),
+					),
+
+					#DataCell(Text(x['age'])),
+					#DataCell(Text(x['address'])),
+					#DataCell(Text(x['name'])),
+					#DataCell(Text(x['age'])),
+					#DataCell(Text(x['address'])), 
+ 				]
+ 			),
+ 		)
  
  
 	def showhidename(e):
@@ -115,4 +161,5 @@ def main(page:Page):
  
 	)
  
-flet.app(target=main)
+#flet.app(target=main)
+flet.app(target=main, port=8886, assets_dir="assets")
