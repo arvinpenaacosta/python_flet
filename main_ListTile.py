@@ -26,8 +26,7 @@ def main(page:Page):
  
  
 	]
- 
- 
+  
 	# CREATE COLUMN OF TABLE
 	colName = DataColumn(Text("name"))
 	colAge = DataColumn(Text("age"))
